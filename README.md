@@ -13,3 +13,10 @@ Sadly, we don't have Alan Turing's birthday.
 ## Credits:
 
 Code is taken from the nice [practice Python](https://www.practicepython.org/) website from Michele Pratusevich and is released with a [CC-BY](https://www.practicepython.org/about/) license.
+
+Unica modifica
+<<<<<<< HEAD
+Risolviamo la Test Issue 2
+=======
+Ciao
+>>>>>>> c78dea19733500eb86e5a2722139d0fab5b0ef43
