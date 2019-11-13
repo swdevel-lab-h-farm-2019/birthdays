@@ -1,3 +1,7 @@
+'''
+This module is useful to catalog the birth date of some famous people
+'''
+
 birthdays = {
     'Albert Einstein': '03/14/1879',
     'Benjamin Franklin': '01/17/1706',
@@ -6,11 +10,13 @@ birthdays = {
     'Rowan Atkinson': '01/6/1955'}
 
 def print_birthdays():
+    ''' This function make you able to print the birthdates '''
     print('Welcome to the birthday dictionary. We know the birthdays of these people:')
     for name in birthdays:
         print(name)
 
 def return_birthday(name):
+    ''' This function make you able to return the birthdates '''
     if name in birthdays:
         print('{}\'s birthday is {}.'.format(name, birthdays[name]))
     else:
