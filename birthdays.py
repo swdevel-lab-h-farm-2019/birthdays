@@ -1,3 +1,4 @@
+import sys
 
 # dictionary
 
@@ -7,6 +8,7 @@ birthdays = {
     'Ada Lovelace': '12/10/1815',
     'Donald Trump': '06/14/1946',
     'Rowan Atkinson': '01/6/1955'}
+
 
 # prints the name of the people in the dictionary
 
