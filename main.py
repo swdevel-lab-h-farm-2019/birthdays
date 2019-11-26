@@ -3,5 +3,5 @@
 import sys
 from birthdays import return_birthday
 
-return_birthday(sys.argv[1])
+return_birthday(str(sys.argv[1]))
 
