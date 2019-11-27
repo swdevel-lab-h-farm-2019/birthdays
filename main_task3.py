@@ -8,21 +8,34 @@ birthdays = {
     'Rowan Atkinson'   : '01/06/1955'}
 
 parser = argparse.ArgumentParser()
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/Xuelan
 parser.add_argument("input_name", help = "Insert name to get birthday")
 parser.add_argument ("-v", "--verbose", help = "increase verbosity", default= False, action = "store_true")
 parser.add_argument ("input_surname", help = "Insert surname")
 args = parser.parse_args()
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/Xuelan
 full_name = args.input_name + " " + args.input_surname
 
 if args.verbose == True:
    print ("verbosity turned on")
+<<<<<<< HEAD
 
 
 
+=======
+   
+>>>>>>> origin/Xuelan
 def return_birthday(name):
     print (birthdays[name])
 
 return_birthday(full_name)
+<<<<<<< HEAD
 
 """
 ----------------
@@ -77,3 +90,5 @@ else:
     print("WARNING: wrong input")
     print("the format is: Name Surname")'''
 """
+=======
+>>>>>>> origin/Xuelan
