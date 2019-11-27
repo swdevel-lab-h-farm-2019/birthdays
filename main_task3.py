@@ -8,13 +8,15 @@ birthdays = {
     'Rowan Atkinson'   : '01/06/1955'}
 
 parser = argparse.ArgumentParser()
-parser.add_argument("test1", help = "test 1")
-#parser.add_argument("test2", help = "test 2")
-#parser.add_argument("test3", help = "test 3")
+parser.add_argument("input_name", help = "Insert name to get birthday")
+parser.add_argument ("-v", "--verbose", help = "increase verbosity", default= False, action = "store_true")
 args = parser.parse_args()
+
+if args.verbose == True:
+   print ("verbosity turned on")
 
 def return_birthday(name):
     print (birthdays[name])
 
 
-return_birthday(args.test1)
+return_birthday(args.input_name)
