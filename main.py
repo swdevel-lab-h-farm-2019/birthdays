@@ -1,6 +1,8 @@
 #! /usr/bin/env python3
 
-from birthdays import return_birthday
+import birthdays
 import sys
 
-return_birthday()
+if len(sys.argv) > 1:
+    birthdays.return_birthday(sys.argv[1])
+
