@@ -8,11 +8,11 @@ parser.add_argument("name_surname", help="display the birthdays of Albert Einste
 parser.add_argument("-v", "--verbosity", choices=[0, 1, 2], type=int, help="increase output verbosity")
 args = parser.parse_args()
 na_su = args.name_surname
-print('The choosen person is ' + na_su)
+
 if args.verbosity == 2:
-    print("The person choosen was born on {}".format(na_su, birthdays.return_birthday(na_su) ))
+    print("{} was born on {}".format(na_su, birthdays.return_birthday(na_su) ))
 elif args.verbosity == 1:
-    print("Oh! You've selected who was born on {}".format(na_su, birthdays.return_birthday(na_su)))
+    print("Oh! You've selected {}, who was born on {}".format(na_su, birthdays.return_birthday(na_su)))
 else:
     print(birthdays.return_birthday(na_su))
 
