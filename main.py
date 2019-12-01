@@ -1,8 +1,12 @@
 #! /usr/bin/env python3
 
 import birthdays
-import sys
+import argparse
 
-if len(sys.argv) > 1:
-    birthdays.return_birthday(sys.argv[1])
+parser = argparse.ArgumentParser()
+parser.add_argument("name_surname", help="display the birthdays of Albert Einstein, Benjamin Franklin, Ada Lovelace, Donald Trump, Rowan Atkinson")
+args = parser.parse_args()
+print('the choosen person is ' + args.name_surname)
+
+birthdays.return_birthday(args.name_surname)
 
