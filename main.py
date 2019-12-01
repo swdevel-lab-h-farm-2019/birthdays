@@ -5,7 +5,7 @@ import argparse
 
 parser = argparse.ArgumentParser()
 parser.add_argument("name_surname", help="display the birthdays of Albert Einstein, Benjamin Franklin, Ada Lovelace, Donald Trump, Rowan Atkinson")
-parser.add_argument("-v", "--verbosity", type=int, help="increase output verbosity")
+parser.add_argument("-v", "--verbosity", choices=[0, 1, 2], type=int, help="increase output verbosity")
 args = parser.parse_args()
 na_su = args.name_surname
 print('The choosen person is ' + na_su)
@@ -17,4 +17,3 @@ else:
     print(birthdays.return_birthday(na_su))
 
 birthdays.return_birthday(na_su)
-
