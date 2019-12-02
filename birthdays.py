@@ -13,9 +13,8 @@ birthdays = {
 # function used to print the person's name + date of birth if the 
 # name is in the dictionary. If not it prints no useful answer 
 
-def return_birthday(name):
+def get_birthday(name):
     if name in birthdays:
-        print('{}\'s birthday is {}.'.format(name, birthdays[name]))
+        return none
     else:
-        print('Sadly, we don\'t have {}\'s birthday.'.format(name))
-
+        birthdays[name]
