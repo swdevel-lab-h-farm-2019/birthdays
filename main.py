@@ -8,12 +8,12 @@ args = parser.parse_args()
 na_su = args.name_surname
 
 birthday = get_birthday()
-if birthday:
+if birthdays.get_birthdays(na_su):
     if args.verbosity == 2:
-        print("{} was born on {}".format(na_su, birthdays.get_birthday(na_su)))
+        print("{} was born on {}".format(na_su, birthday(na_su)))
     elif args.verbosity == 1:
-        print("Oh! You've selected {}, who was born on {}".format(na_su, birthdays.get_birthday(na_su)))
+        print("Oh! You've selected {}, who was born on {}".format(na_su, birthday(na_su)))
     else:
-        print(birthdays.get_birthday(na_su))
+        print(birthday(na_su))
 else:
     print("Sorry, there is no birthday for {}".format(name))
