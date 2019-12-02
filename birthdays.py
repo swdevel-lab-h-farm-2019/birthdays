@@ -15,6 +15,6 @@ birthdays = {
 
 def get_birthday(name):
     if name in birthdays:
-        return none
-    else:
         birthdays[name]
+    else:
+        return None
