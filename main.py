@@ -5,7 +5,6 @@ import csv
 conn = None
 cursor = None
 
-"""---------------------------------------------------------------------------------------------------------------------------------------------------------------"""
 
 def open_and_create():
     global conn
@@ -44,6 +43,7 @@ def save_new_username(username, password):
                    (username, digest))
     cursor.execute("INSERT OR REPLACE INTO wallet VALUES (?,?)",
                    (username, 10))
+    print ("Thanks for registering: you can now access the database with your credentials, use -c *username* and -p *password* to login, plus -n *name* to know name's birthday")
     conn.commit()
 
 args = parse_args()
@@ -76,63 +76,6 @@ args = parse_args()
 open_and_create()
 if args.a and args.p:
     save_new_username(args.a, args.p)
-    print ("Thanks for registering: you can now access the database with your credentials, use -c *username* and -p *password* to login, plus -n *name* to know name's birthday")
 elif args.c and args.p:
     check_for_username(args.c, args.p)
 conn.close()
-
-
-
-
-
-
-
-"""
-#add name argument to be asked
-
-args = parse_args()
-open_and_create()
-if args.a and args.p:
-    #save_new_username_vulnerable(args.a, args.p)
-    save_new_username_correct(args.a, args.p)
-elif args.c and args.p:
-    #check_for_username_vulnerable(args.c, args.p)
-    check_for_username_correct(args.c, args.p)
-conn.close() 
-"""
-
-"""-------------------------------------------------------------------------------------------------------------------------------------------------------------"""
-
-"""
-filename= "Data_file.csv"
-def get_names(filename):
-    rows = []
-
-    with open(filename, newline='') as f:
-        reader = csv.DictReader(f)
-        for row in enumerate(reader):
-            rows += [ [x for x in row.values()] ]
-    return rows
-
-names = get_names(filename)
-print ('Welcome to the birthday dataset. We know the birthdays of these people:')
-print ("names:", [names[n][0] for n in range(5)])
-
-parser = argparse.ArgumentParser()
-parser.add_argument("-n", "name", help = "Insert name in quotation marks to get birthday")
-parser.add_argument ("-v", "--verbose", help = "increase verbosity", default= False, action = "store_true")
-args = parser.parse_args()
-
-with open(filename, newline='') as f:
-    reader = csv.DictReader(f)
-    count=0
-    for i,row in enumerate(reader):
-        if i==10:break
-        for k,v in row.items():
-            if v == args.name:
-                print('the birthday of '+ args.name+ " is: " +row['date_birth'])
-            else:
-                count+=1
-        if count>= 5: 
-            print: ("Sadly we don't have "+ args.name+ "'s birthdays")
-"""
