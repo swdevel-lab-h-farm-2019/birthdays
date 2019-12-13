@@ -2,28 +2,9 @@ import sqlite3
 import argparse
 import hashlib
 import csv
-conn = None
-cursor = None
 
-
-def open_and_create():
-    global conn
-    global cursor
-    conn = sqlite3.connect('example-pwd.db')
-    cursor = conn.cursor()
-    try:
-        cursor.execute("SELECT * FROM user")
-    except sqlite3.OperationalError:
-        # Create table
-        cursor.execute('''CREATE TABLE user
-                     (username TEXT, password TEXT,
-                      PRIMARY KEY (username))''')
-
-        cursor.execute('''CREATE TABLE wallet
-                     (username TEXT, balance INTEGER,
-                      PRIMARY KEY (username),
-                      FOREIGN KEY (username)
-                        REFERENCES user(username))''')
+conn = sqlite3.connect('script/pwd.db')
+cursor = conn.cursor()
 
 def parse_args():
     parser = argparse.ArgumentParser()
@@ -31,7 +12,7 @@ def parse_args():
     parser.add_argument('-p', help="the username password", required=True)
     parser.add_argument('-c', help="check for a usernamename and password" "(requires -p)", required=False)
     parser.add_argument("-n", help = "Insert name in quotation marks to get birthday", required=False)
-    parser.add_argument ("-v", "--verbose", help = "increase verbosity", default= False, action = "store_true", required=False)
+    parser.add_argument("-v", help = "increase verbosity", default= False, action = "store_true", required=False)
     return parser.parse_args()
 
 
@@ -41,9 +22,9 @@ def save_new_username(username, password):
     digest = hashlib.sha256(password.encode('utf-8')).hexdigest()
     cursor.execute("INSERT OR REPLACE INTO user VALUES (?,?)",
                    (username, digest))
-    cursor.execute("INSERT OR REPLACE INTO wallet VALUES (?,?)",
-                   (username, 10))
+    print ("")
     print ("Thanks for registering: you can now access the database with your credentials, use -c *username* and -p *password* to login, plus -n *name* to know name's birthday")
+    print ("")
     conn.commit()
 
 args = parse_args()
@@ -73,9 +54,14 @@ def check_for_username(username, password):
 
 
 args = parse_args()
-open_and_create()
 if args.a and args.p:
     save_new_username(args.a, args.p)
 elif args.c and args.p:
     check_for_username(args.c, args.p)
+if args.v is True:
+    print ("""This program returns the birthday of a famous person specified by the user.
+    Note that the program will only return the birthday of people present in the 'Data_file.csv' database.
+    To use first run 'script/dbmanager.py', then run main.py using python. Arguments are: -a: add username;
+    -p: add password or check password (required); -c: check username; -v: turn on verbosity;
+    n- in quotation marks, add name of person to research.""")
 conn.close()
