@@ -6,7 +6,7 @@ conn = None
 cursor = None
 
 
-def open_and_create():  # Define
+def open_and_create():  # Define the function
     global conn
     global cursor
     conn = sqlite3.connect('example-pwd.db')
