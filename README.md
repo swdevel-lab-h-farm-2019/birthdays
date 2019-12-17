@@ -32,3 +32,10 @@ There are three different outup options, according by the number of -v you put a
 ## PEP-8:
 All the python modules and codes have been tested into the text regulation of PEP-8.
 
+## Credits:
+Pasti Riccardo
+Pasqualini Marco
+Gatti Giovanni
+Makosa Sara
+
+Composing the READ TAILS team!
