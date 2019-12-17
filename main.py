@@ -6,10 +6,13 @@ import hashlib
 
 import csv
 
+<<<<<<< HEAD
 
 conn = sqlite3.connect('script/pwd.db')
 
 cursor = conn.cursor()
+=======
+>>>>>>> comments
 
 
 def parse_args():
@@ -82,6 +85,7 @@ if args.c and args.p:
     check_for_username(args.c, args.p)
 
 if args.v is True:
+<<<<<<< HEAD
 
     print ('''This program returns the birthday of a famous person
            specified by the user. Note that the program will
