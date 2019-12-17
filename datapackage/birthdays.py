@@ -1,4 +1,4 @@
-"""defining birthdays funxtions"""
+"""defining birthdays functions"""
 
 """Open the birth.csv file and read it"""
 import csv
