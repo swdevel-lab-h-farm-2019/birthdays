@@ -14,10 +14,9 @@ cursor = conn.cursor()
 
 def parse_args():
     parser = argparse.ArgumentParser()
-    parser.add_argument('-a', help='add a usernamename(requires -p)',
-                        required=False)
     parser.add_argument('-p', help='the username password',
                         required=True)
+
     parser.add_argument('-c', help='check for a usernamename and password'
                         '(requires -p)',
                         required=False)
@@ -29,30 +28,8 @@ def parse_args():
     parser.add_argument('-v', help='increase verbosity', default=False,
                         action='store_true',
                         required=False)
+
     return parser.parse_args()
-
-
-def save_new_username(username, password):
-
-    global conn
-
-    global cursor
-
-    digest = hashlib.sha256(password.encode('utf-8')).hexdigest()
-
-    cursor.execute('INSERT OR REPLACE INTO user VALUES (?,?)',
-
-                   (username, digest))
-
-    print('')
-
-    print('''Thanks for registering: you can now access the database with
-           your credentials, use -c *username* and -p *password* to login,
-           plus -n *name* to know birthday name''')
-
-    print('')
-
-    conn.commit()
 
 
 args = parse_args()
@@ -100,11 +77,7 @@ def check_for_username(username, password):
 
 args = parse_args()
 
-if args.a and args.p:
-
-    save_new_username(args.a, args.p)
-
-elif args.c and args.p:
+if args.c and args.p:
 
     check_for_username(args.c, args.p)
 
