@@ -6,15 +6,16 @@ import hashlib
 
 import csv
 
-<<<<<<< HEAD
 
+# using conn to simulate a connection to a remote database located in
+# script/pwd.db
+>>>>>>> claudia
 conn = sqlite3.connect('script/pwd.db')
-
+# using cursor to open the database
 cursor = conn.cursor()
-=======
->>>>>>> comments
 
 
+# defining a function to express the arguments that the user can select
 def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument('-p', help='the username password',
@@ -34,12 +35,15 @@ def parse_args():
 
     return parser.parse_args()
 
-
+# renaming the previously used function args
 args = parse_args()
 
+# using the data from the following csv
 filename = 'Data_file.csv'
 
 
+# defining a function that looks for the user that has as username the
+# username added and as password the digest of the inserted password
 def check_for_username(username, password):
 
     global conn
@@ -52,7 +56,7 @@ def check_for_username(username, password):
                           password=?''', (username, digest))
 
     results = rows.fetchall()
-
+    # checking that username string is in the returned string
     if str(username) in str(results):
 
         if results:
@@ -65,12 +69,12 @@ def check_for_username(username, password):
 
                 for row in reader:
 
-                    if row['name'] == args.n:
+                    if row['name'] == args.n:  # if the name is the one
+                                                # selected  by the user
 
                         print ('Welcome ' + args.c + ', the birthday of '
                                + args.n
                                + ' is: ' + row['date_birth'])
-
         else:
             print('Name is not present, or password is invalid')
 
@@ -79,13 +83,13 @@ def check_for_username(username, password):
 
 
 args = parse_args()
-
+# if the user gave both a user name and a passowrd, run function
+# check_for_username()
 if args.c and args.p:
 
     check_for_username(args.c, args.p)
-
+# if argument verbose is used, give help, explain what the code does
 if args.v is True:
-<<<<<<< HEAD
 
     print ('''This program returns the birthday of a famous person
            specified by the user. Note that the program will
@@ -98,4 +102,7 @@ if args.v is True:
            person to research.''')
 
 conn.close()
+
+  
+    
 
