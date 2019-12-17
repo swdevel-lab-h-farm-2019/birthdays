@@ -1,4 +1,4 @@
-##Find famous people birthdays!
+# Find famous people birthdays!
 The repository we choose is "birthdays" wich contains the birthdays of several famous people.
 By running main.py file by your terminal it will retur the dates of birth of the person you searched for, given a valid input and if it is present in our database databirth.csv contained in the datapackage folder.
 
@@ -21,7 +21,7 @@ Benjamin Franklin
 Albert Einstein
 Donald Trump
 
-##Verbosity:
+## Verbosity:
 There are three different outup options, according by the number of -v you put at the end of the input.
 
 1) If you omit -v, it will return only the date of the birthday. 03/14/1879
@@ -29,7 +29,6 @@ There are three different outup options, according by the number of -v you put a
 3) -vv: returns a sentence. Albert Einstein was born the 03/14/1879
 
 
-##PEP-8:
+## PEP-8:
 All the python modules and codes have been tested into the text regulation of PEP-8.
-
 
